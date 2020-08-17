@@ -22,7 +22,29 @@ namespace TruyumOnline.Controllers
 		{
 			return View();
 		}
-
+		public IActionResult UserLogin(string UserName,string Password)
+		{
+			try
+			{
+				if (UserName == "Admin" && Password == "Admin")
+				{
+					return RedirectToAction("Index", "Admin");
+				}
+				else if (UserName == "Customer" && Password == "Customer")
+				{
+					return RedirectToAction("GetAllActiveItems", "Customer");
+				}
+				else
+				{
+					ViewBag.Message = "Invalid Credentials";
+				}
+			}
+			catch(Exception ex)
+			{
+				return NotFound(ex.Message);
+			}
+			return View();
+		}
 		public IActionResult Privacy()
 		{
 			return View();

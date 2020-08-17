@@ -25,6 +25,7 @@ namespace TruyumOnline
 		{
 			services.AddControllersWithViews();
 			services.AddTransient<IMenuItemDaoSql, MenuItemDaoSql>();
+			services.AddTransient<ICustomerDataAccessLayer, CustomerDataAccessLayer>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +49,7 @@ namespace TruyumOnline
 			{
 				endpoints.MapControllerRoute(
 					name: "default",
-					pattern: "{controller=Admin}/{action=Index}/{id?}");
+					pattern: "{controller=Home}/{action=UserLogin}/{id?}");
 			});
 		}
 	}

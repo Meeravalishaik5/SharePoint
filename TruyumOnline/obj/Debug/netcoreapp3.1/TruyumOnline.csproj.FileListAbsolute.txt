@@ -119,3 +119,8 @@ F:\SharePoint\TruyumOnline\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddNewItem.
 F:\SharePoint\TruyumOnline\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ModifyMenuItemAdmin.cshtml.g.cs
 F:\SharePoint\TruyumOnline\obj\Debug\netcoreapp3.1\Razor\Views\Admin\GetMenuItemAdminById.cshtml.g.cs
 F:\SharePoint\TruyumOnline\obj\Debug\netcoreapp3.1\Razor\Views\Admin\DeleteMenuItemAdmin.cshtml.g.cs
+F:\SharePoint\TruyumOnline\obj\Debug\netcoreapp3.1\Razor\Views\Customer\GetAllActiveItems.cshtml.g.cs
+F:\SharePoint\TruyumOnline\obj\Debug\netcoreapp3.1\Razor\Views\Home\UserLogin.cshtml.g.cs
+F:\SharePoint\TruyumOnline\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Cart.cshtml.g.cs
+F:\SharePoint\TruyumOnline\obj\Debug\netcoreapp3.1\Razor\Views\Customer\GetAllCartItems.cshtml.g.cs
+F:\SharePoint\TruyumOnline\obj\Debug\netcoreapp3.1\Razor\Views\Customer\DeleteCartItem.cshtml.g.cs
