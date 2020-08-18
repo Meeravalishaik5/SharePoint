@@ -13,10 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ItemName)
+                Name
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                Date of Launch
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Active)
@@ -24,7 +27,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Category)
             </th>
-            <th></th>
+            <th>
+                FreeDelivery
+            </th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -37,15 +43,21 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
+                @Html.DisplayFor(modelItem=>item.DateOfLaunch)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Active)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Category)
             </td>
             <td>
-                @Html.ActionLink("Edit", "ModifyMenuItemAdmin", new {  id=item.ItemId  }) |
-                @Html.ActionLink("Details", "GetMenuItemAdminById", new {  id=item.ItemId  }) |
-                @Html.ActionLink("Delete", "DeleteMenuItemAdmin", new {  id=item.ItemId  })
+                @Html.DisplayFor(modelItem => item.FreeDelivery)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "ModifyMenuItemAdmin", new { id = item.ItemId }) |
+                @Html.ActionLink("Details", "GetMenuItemAdminById", new { id = item.ItemId }) |
+                @Html.ActionLink("Delete", "DeleteMenuItemAdmin", new { id = item.ItemId })
             </td>
         </tr>
 }

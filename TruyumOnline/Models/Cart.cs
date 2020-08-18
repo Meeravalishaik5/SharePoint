@@ -12,6 +12,7 @@ namespace TruyumOnline.Models
         public string Category { get; set; }
         public string FreeDelivery { get; set; }
         public int? ItemId { get; set; }
+        public DateTime DateOfLaunch { get; set; }
         public virtual Items Item { get; set; }
     }
 }

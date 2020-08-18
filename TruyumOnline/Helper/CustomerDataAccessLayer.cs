@@ -15,13 +15,14 @@ namespace TruyumOnline.Helper
 		{
 			using (SqlConnection con = new SqlConnection(connectionString))
 			{
-				SqlCommand cmd = new SqlCommand("INSERT INTO Cart(ItemName,Price,Active,Category,FreeDelivery,ItemId) Values(@ItemName,@Price,@Active,@Category,@FreeDelivery,@ItemId)", con);
+				SqlCommand cmd = new SqlCommand("INSERT INTO Cart(ItemName,Price,Active,Category,FreeDelivery,ItemId,DateOfLaunch) Values(@ItemName,@Price,@Active,@Category,@FreeDelivery,@ItemId,@DateOfLaunch)", con);
 				cmd.Parameters.AddWithValue("@ItemName",items.ItemName);
 				cmd.Parameters.AddWithValue("@Price", items.Price);
 				cmd.Parameters.AddWithValue("@Active", items.Active);
 				cmd.Parameters.AddWithValue("@Category", items.Category);
 				cmd.Parameters.AddWithValue("@FreeDelivery", items.FreeDelivery);
 				cmd.Parameters.AddWithValue("@ItemId", items.ItemId);
+				cmd.Parameters.AddWithValue("@DateOfLaunch", items.DateOfLaunch);
 				con.Open();
 				cmd.ExecuteNonQuery();
 				con.Close();
@@ -58,6 +59,7 @@ namespace TruyumOnline.Helper
 					item.Active = rdr["Active"].ToString();
 					item.Category = rdr["Category"].ToString();
 					item.FreeDelivery = rdr["FreeDelivery"].ToString();
+					item.DateOfLaunch = Convert.ToDateTime(rdr["DateOfLaunch"]);
 					itemsList.Add(item);
 				}
 				con.Close();
@@ -83,6 +85,7 @@ namespace TruyumOnline.Helper
 					cart.Active = rdr["Active"].ToString();
 					cart.Category = rdr["Category"].ToString();
 					cart.FreeDelivery = rdr["FreeDelivery"].ToString();
+					cart.DateOfLaunch = Convert.ToDateTime(rdr["DateOfLaunch"]);
 					cartList.Add(cart);
 				}
 				con.Close();
@@ -108,6 +111,7 @@ namespace TruyumOnline.Helper
 					cart.Category = rdr["Category"].ToString();
 					cart.FreeDelivery = rdr["FreeDelivery"].ToString();
 					cart.ItemId = Convert.ToInt32(rdr["ItemId"]);
+					cart.DateOfLaunch = Convert.ToDateTime(rdr["DateOfLaunch"]);
 				}
 				con.Close();
 			}
@@ -131,6 +135,7 @@ namespace TruyumOnline.Helper
 					item.Active = rdr["Active"].ToString();
 					item.Category = rdr["Category"].ToString();
 					item.FreeDelivery = rdr["FreeDelivery"].ToString();
+					item.DateOfLaunch = Convert.ToDateTime(rdr["DateOfLaunch"]);
 				}
 				con.Close();
 			}

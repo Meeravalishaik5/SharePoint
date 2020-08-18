@@ -11,5 +11,6 @@ namespace TruyumOnline.Models
         public string Active { get; set; }
         public string Category { get; set; }
         public string FreeDelivery { get; set; }
+        public DateTime DateOfLaunch { get; set; }
     }
 }

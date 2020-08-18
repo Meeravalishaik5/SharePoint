@@ -15,12 +15,13 @@ namespace TruyumOnline.Helper
 		{
 			using (SqlConnection con = new SqlConnection(connectionString))
 			{
-				SqlCommand cmd = new SqlCommand("INSERT INTO Items(ItemName,Price,Active,Category,FreeDelivery) Values(@ItemName,@Price,@Active,@Category,@FreeDelivery)", con);
+				SqlCommand cmd = new SqlCommand("INSERT INTO Items(ItemName,Price,Active,Category,FreeDelivery,DateOfLaunch) Values(@ItemName,@Price,@Active,@Category,@FreeDelivery,@DateOfLaunch)", con);
 				cmd.Parameters.AddWithValue("@ItemName",items.ItemName);
 				cmd.Parameters.AddWithValue("@Price",items.Price);
 				cmd.Parameters.AddWithValue("@Active", items.Active);
 				cmd.Parameters.AddWithValue("@Category", items.Category);
 				cmd.Parameters.AddWithValue("@FreeDelivery", items.FreeDelivery);
+				cmd.Parameters.AddWithValue("@DateOfLaunch", items.DateOfLaunch);
 				con.Open();
 				cmd.ExecuteNonQuery();
 				con.Close();
@@ -54,6 +55,7 @@ namespace TruyumOnline.Helper
 					item.Active = rdr["Active"].ToString();
 					item.Category = rdr["Category"].ToString();
 					item.FreeDelivery = rdr["FreeDelivery"].ToString();
+					item.DateOfLaunch = Convert.ToDateTime(rdr["DateOfLaunch"]);
 				}
 				con.Close();
 			}
@@ -77,6 +79,7 @@ namespace TruyumOnline.Helper
 					item.Active = rdr["Active"].ToString();
 					item.Category = rdr["Category"].ToString();
 					item.FreeDelivery = rdr["FreeDelivery"].ToString();
+					item.DateOfLaunch = Convert.ToDateTime(rdr["DateOfLaunch"]);
 					itemsList.Add(item);
 				}
 				con.Close();
@@ -88,13 +91,14 @@ namespace TruyumOnline.Helper
 		{
 			using (SqlConnection con = new SqlConnection(connectionString))
 			{
-				SqlCommand cmd = new SqlCommand("UPDATE Items SET ItemName=@ItemName,Price=@Price,Active=@Active,Category=@Category,FreeDelivery=@FreeDelivery WHERE ItemId=@ItemId", con);
+				SqlCommand cmd = new SqlCommand("UPDATE Items SET ItemName=@ItemName,Price=@Price,Active=@Active,Category=@Category,FreeDelivery=@FreeDelivery,DateOfLaunch=@DateOfLaunch WHERE ItemId=@ItemId", con);
 				cmd.Parameters.AddWithValue("@ItemId", items.ItemId);
 				cmd.Parameters.AddWithValue("@ItemName", items.ItemName);
 				cmd.Parameters.AddWithValue("@Price", items.Price);
 				cmd.Parameters.AddWithValue("@Active", items.Active);
 				cmd.Parameters.AddWithValue("@Category", items.Category);
 				cmd.Parameters.AddWithValue("@FreeDelivery", items.FreeDelivery);
+				cmd.Parameters.AddWithValue("@DateOfLaunch", items.DateOfLaunch);
 				con.Open();
 				cmd.ExecuteNonQuery();
 				con.Close();
